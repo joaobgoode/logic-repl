@@ -1,0 +1,10 @@
+(library
+  (name logic_repl) 
+  (modules
+    token
+    ast
+    lexer
+    parser
+    evaluate
+  )
+  (instrumentation (backend bisect_ppx)))

@@ -1,0 +1,9 @@
+(test
+  (name test_evaluate)
+  (libraries logic_repl)
+)
+
+(test
+  (name test_lexer)
+  (libraries logic_repl)
+)
