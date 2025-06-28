@@ -206,7 +206,7 @@ let test_eval_rparent_test () =
     let env = env_from_list [("A", true); ("B", false); ("C", true)] in
     Evaluate.eval expr env
   with
-    | Parser.Parse_error "Esperado RPAREN" -> true
+    | Parser.Parse_error "Parenteses Desbalenceados" -> true
     | _ -> false
 
 let test_eval_ilegal_token () =
@@ -224,7 +224,7 @@ let test_eval_remaining_tokens () =
     let env = env_from_list [("A", true); ("B", false); ("C", true)] in
     Evaluate.eval expr env
   with
-    | Parser.Parse_error "Tokens restantes após parsing" -> true
+    | Parser.Parse_error "Tokens restantes após parsing: )" -> true
     | _ -> false
 
 let test_eval_unnexpected_tokens () =
@@ -233,7 +233,7 @@ let test_eval_unnexpected_tokens () =
     let env = env_from_list [("A", true); ("B", false); ("C", true)] in
     Evaluate.eval expr env
   with
-    | Parser.Parse_error "Token inesperado" -> true
+    | Parser.Parse_error "Token inesperado: '+'" -> true
     | _ -> false
 
 let test_eval_unnexpected_tokens2 () =
@@ -242,7 +242,7 @@ let test_eval_unnexpected_tokens2 () =
     let env = env_from_list [("A", true); ("B", false); ("C", true)] in
     Evaluate.eval expr env
   with
-    | Parser.Parse_error "Token inesperado" -> true
+    | Parser.Parse_error "Token inesperado: ')'" -> true
     | _ -> false
 
 let test_eval_unnexpected_tokens3 () =
@@ -251,7 +251,7 @@ let test_eval_unnexpected_tokens3 () =
     let env = env_from_list [] in
     Evaluate.eval expr env
   with
-    | Parser.Parse_error "Token inesperado" -> true
+    | Parser.Parse_error "Tokens Vazios" -> true
     | _ -> false
 
 let test_eval_unnexpected_tokens4 () =
@@ -260,7 +260,7 @@ let test_eval_unnexpected_tokens4 () =
     let env = env_from_list [] in
     Evaluate.eval expr env
   with
-    | Parser.Parse_error "Token inesperado" -> true
+    | Parser.Parse_error "Token inesperado: ')'" -> true
     | _ -> false
 
 

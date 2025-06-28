@@ -62,9 +62,9 @@ and parse_atom tokens =
       let expr, rest = parse_expr tl in
       (match rest with
         | RPAREN :: tl' -> (expr, tl')
-        | _ -> raise (Parse_error "Esperado RPAREN"))
-  | _ -> raise (Parse_error "Token inesperado")
-
+        | _ -> raise (Parse_error "Parenteses Desbalenceados"))
+  | ch :: _ -> raise (Parse_error (Printf.sprintf "Token inesperado: '%s'" (string_of_token ch)))
+  | [] -> raise (Parse_error "Tokens Vazios")
 let parse tokens =
   List.iter (fun t ->
     match t with
@@ -74,4 +74,4 @@ let parse tokens =
   let expr, rest = parse_expr tokens in
   match rest with
   | [] -> expr
-  | _ -> raise (Parse_error "Tokens restantes após parsing")
+  | ch :: _ -> raise (Parse_error (Printf.sprintf "Tokens restantes após parsing: %s" (string_of_token ch)))
