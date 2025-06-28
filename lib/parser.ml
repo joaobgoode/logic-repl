@@ -64,7 +64,7 @@ and parse_atom tokens =
         | RPAREN :: tl' -> (expr, tl')
         | _ -> raise (Parse_error "Parenteses Desbalenceados"))
   | ch :: _ -> raise (Parse_error (Printf.sprintf "Token inesperado: '%s'" (string_of_token ch)))
-  | [] -> raise (Parse_error "Tokens Vazios")
+  | [] -> raise (Parse_error "Tokens Vazios ou Faltando")
 let parse tokens =
   List.iter (fun t ->
     match t with

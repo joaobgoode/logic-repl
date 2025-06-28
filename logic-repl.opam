@@ -6,9 +6,9 @@ description:
 maintainer: ["Joao Victor Vieira Marcondes"]
 authors: ["Joao Victor Vieira Marcondes"]
 license: "LICENSE"
-tags: ["propositional-logic" "repl" "logic" "ocaml"]
-homepage: "https://github.com/joaobgoode/logic-repo"
-bug-reports: "https://github.com/joaobgoode/logic-repo/issues"
+tags: ["add topics" "to describe" "your" "project"]
+homepage: "https://github.com/username/reponame"
+bug-reports: "https://github.com/username/reponame/issues"
 depends: [
   "dune" {>= "3.19"}
   "ocaml"
@@ -28,5 +28,5 @@ build: [
     "@doc" {with-doc}
   ]
 ]
-dev-repo: "git+https://github.com/joaobgoode/logic-repo.git"
+dev-repo: "git+https://github.com/username/reponame.git"
 x-maintenance-intent: ["(latest)"]

@@ -251,7 +251,7 @@ let test_eval_unnexpected_tokens3 () =
     let env = env_from_list [] in
     Evaluate.eval expr env
   with
-    | Parser.Parse_error "Tokens Vazios" -> true
+    | Parser.Parse_error "Tokens Vazios ou Faltando" -> true
     | _ -> false
 
 let test_eval_unnexpected_tokens4 () =
